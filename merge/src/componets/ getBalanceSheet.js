@@ -1,4 +1,6 @@
 export default function getBalanceSheet(ticker, setData) {
+
+  // health of the comany, Rev growth Gross margin Ebitda Margin, cash conversion ratio , intrest coverage ratio
   try {
     if (typeof ticker === "string" && stocks.lookup(ticker) !== null) {
       fmp

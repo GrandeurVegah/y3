@@ -1,8 +1,4 @@
-export default function dashboad (params) {
-
-
-    return(
-        <div> Hi </div>
-    )
-    
+import React from "react";
+export default function dashboad(props) {
+  return <div> Dashboard </div>;
 }

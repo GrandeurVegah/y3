@@ -1,3 +1,9 @@
-import {getPrice, getBalanceSheet} from "../componets/api"
+import React from "react";
 
-getPrice("Appl")
+export default function home() {
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  );
+}
