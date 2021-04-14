@@ -1,11 +1,15 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { Search } from "./componets";
-import { Navbar } from "./componets";
-import { Home } from "./componets";
-import { Dropdown } from "./componets";
-import { Portfolio } from "./componets";
+import {
+  Search,
+  Navbar,
+  Home,
+  Dropdown,
+  Portfolio,
+  AuthProvider,
+  //PrivateRoute,
+} from "./componets";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,10 +35,18 @@ function App() {
 
   const [data, setData] = useState({
     comapanyName: "",
-    price: 20,
-    balacncesheet: { cashAndCashEquivalents: 0 },
-    growthMetrics: {},
-    pressReleases: {},
+    price: 0,
+    revenue: 0,
+    debtGrowth: 0,
+    costOfRevenue: 0,
+    ebitda: 0,
+    revenueGrowth: 0,
+    enterpriseValueOverEBITDA: 0,
+    enterpriseValue: 0,
+    interestCoverage: 0,
+    dividendYield: 0,
+    roicTTM: 0,
+    pressReleaseData: [],
     sentiment: "",
   });
   const [ticker, setTicker] = useState("");
@@ -45,25 +57,33 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar toggle={toggle} />
-      <Dropdown isOpen={isOpen} toggle={toggle} />
+      <AuthProvider>
+        <Navbar toggle={toggle} />
+        <Dropdown isOpen={isOpen} toggle={toggle} />
 
-      <Route exact path="/Search">
-        <Search Ticker={ticker} handleTicker={handleTicker} setData={setData} />
-      </Route>
-      <Switch>
-        <Route exact path="/">
-          <Home />
+        <Route exact path="/Search">
+          <Search
+            Ticker={ticker}
+            handleTicker={handleTicker}
+            setData={setData}
+          />
         </Route>
-        <Route exact path="/Portfolio">
-          <Portfolio />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/Portfolio">
+            <Portfolio />
+          </Route>
+        </Switch>
+      </AuthProvider>
 
       <div>
         <h1>{ticker}</h1>
         <h1>{data.price}</h1>
         <h1>{data.comapanyName}</h1>
+        <h1>{data.enterpriseValueOverEBITDA}</h1>
+        <h1>{data.enterpriseValue}</h1>
       </div>
     </div>
   );

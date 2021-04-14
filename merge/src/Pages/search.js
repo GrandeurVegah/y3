@@ -4,7 +4,9 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import { getPrice } from "../componets";
-import { getCompanyName } from "../componets"
+import { getCompanyName } from "../componets";
+//import { getPressReleases } from "../componets";
+import { getCompanyMetrics } from "../componets";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +26,11 @@ export default function Search(props) {
     event.preventDefault();
     await props.handleTicker(tempTicker.current.value);
     getPrice(tempTicker.current.value, props.setData);
-    getCompanyName(tempTicker.current.value, props.setData)
+    getCompanyName(tempTicker.current.value, props.setData);
+    // Working ON
+    //getPressReleases(tempTicker.current.value, props.setData);
+    getCompanyMetrics(tempTicker.current.value, props.setData);
+
     console.log(tempTicker.current.value);
   }
 

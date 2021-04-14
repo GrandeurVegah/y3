@@ -4,11 +4,16 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
+    "@stripe/react-stripe-js": "^1.4.0",
+    "@stripe/stripe-js": "^1.13.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^10.2.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "financialmodelingprep": "^1.1.0",
+    "firebase": "^8.3.3",
     "https": "^1.0.0",
     "postcss": "^8.2.8",
     "postcss-cli": "^8.3.1",
@@ -19,8 +24,7 @@
     "stock-ticker-symbol": "^1.1.0",
     "tailwindcss": "^2.0.3",
     "web-vitals": "^0.2.4",
-    "wink-sentiment": "^5.0.2",
-    "yahoo-financial-data": "^1.1.4"
+    "wink-sentiment": "^5.0.2"
   },
   "scripts": {
     "start": "npm run watch:css && react-scripts start",
