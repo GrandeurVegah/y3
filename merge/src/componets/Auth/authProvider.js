@@ -6,18 +6,17 @@ export const AuthContext = React.createContext();
 
 export function useAuth() {
   let myCon = useContext(AuthContext);
-  console.log(myCon);
   return myCon;
 }
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [pending, setPending] = useState(true);
+  var provider = new firebase.auth.GoogleAuthProvider();
 
   function login() {
     console.log("Google Log in Auth");
     // Using a popup.
-    var provider = new firebase.auth.GoogleAuthProvider();
     return firebase
       .auth()
       .signInWithPopup(provider)
@@ -46,7 +45,7 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
-    return firebaseConfig.signOut();
+    return firebase.auth().signOut();
   }
 
   useEffect(() => {
@@ -62,7 +61,6 @@ export function AuthProvider({ children }) {
     login,
     logout,
   };
-  
 
   return (
     <AuthContext.Provider value={value}>
