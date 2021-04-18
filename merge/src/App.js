@@ -8,7 +8,7 @@ import {
   Dropdown,
   Portfolio,
   AuthProvider,
-  //PrivateRoute,
+  PrivateRoute,
 } from "./componets";
 
 function App() {
@@ -52,7 +52,13 @@ function App() {
   const [ticker, setTicker] = useState("");
 
   async function handleTicker(tickerData) {
-    await setTicker(tickerData);
+    setTicker(tickerData);
+  }
+
+  function displaySearch() {
+    return (
+      <Search Ticker={ticker} handleTicker={handleTicker} setData={setData} />
+    );
   }
 
   return (
@@ -61,13 +67,11 @@ function App() {
         <Navbar toggle={toggle} />
         <Dropdown isOpen={isOpen} toggle={toggle} />
 
-        <Route exact path="/Search">
-          <Search
-            Ticker={ticker}
-            handleTicker={handleTicker}
-            setData={setData}
-          />
-        </Route>
+        <PrivateRoute
+          exact
+          path="/Search"
+          component={displaySearch}
+        ></PrivateRoute>
         <Switch>
           <Route exact path="/">
             <Home />

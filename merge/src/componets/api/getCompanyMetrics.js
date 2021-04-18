@@ -21,8 +21,8 @@ export default function getCompanyMetrics(ticker, setData) {
             return {
               ...oldvalue,
               enterpriseValue: data[0].enterpriseValueTTM,
-              enterpriseValueOverEBITDA: data[0].enterpriseValueOverEBITDA,
-              interestCoverage: data[0].interestCoverage
+              enterpriseValueOverEBITDA: data[0].enterpriseValueOverEBITDATTM,
+              interestCoverage: data[0].interestCoverage,
             };
           });
         });

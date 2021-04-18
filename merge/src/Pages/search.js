@@ -24,7 +24,7 @@ export default function Search(props) {
 
   async function changeTicker(event) {
     event.preventDefault();
-    await props.handleTicker(tempTicker.current.value);
+    props.handleTicker(tempTicker.current.value);
     getPrice(tempTicker.current.value, props.setData);
     getCompanyName(tempTicker.current.value, props.setData);
     // Working ON
