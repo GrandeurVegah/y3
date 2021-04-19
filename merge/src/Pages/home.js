@@ -6,10 +6,9 @@ export default function Home() {
     if (currentUser) {
       return (
         <div>
-        <div>Email: {currentUser.email} </div>
-    </div>
-    );
-    
+          <div>Email: {currentUser.email} </div>
+        </div>
+      );
     }
   }
   return (
