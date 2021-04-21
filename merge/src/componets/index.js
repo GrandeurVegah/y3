@@ -14,3 +14,5 @@ export { useAuth, AuthProvider } from "../componets/Auth/authProvider";
 export { AuthContext } from "../componets/Auth/authProvider";
 export { default as PrivateRoute } from "./Auth/privateRoute";
 export { default as SearchUI } from "../dashboard/searchUi";
+export { default as FliterCard } from "../dashboard/fliterCard"
+export { default as stock } from "../componets/api/stock";

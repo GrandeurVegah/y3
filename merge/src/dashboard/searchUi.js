@@ -15,18 +15,18 @@ export default function SearchUi(props) {
     getCompanyMetrics(ticker, props.props.setData);
   }
   return (
-    <div>
+    <div className="pt-6">
       <div>
         <form onSubmit={changeTicker}>
           <label>
-            <h2 className="">Search Stock Code:</h2>
             <input
+              className="bg-white w-96 placeholder-black placeholder-center rounded-full py-3 px-6 ring-red"
+              placeholder="Search Ticker"
               type="text"
               value={ticker}
               onChange={(e) => setTicker(e.target.value)}
             />
           </label>
-          <input type="submit" value="Submit" />
         </form>
       </div>
     </div>

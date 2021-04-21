@@ -34,12 +34,14 @@ function App() {
   });
 
   const [data, setData] = useState({
+    date: "",
     comapanyName: "",
     price: 0,
     revenue: 0,
     debtGrowth: 0,
     costOfRevenue: 0,
     ebitda: 0,
+    ebitdaratio: 0,
     revenueGrowth: 0,
     enterpriseValueOverEBITDA: 0,
     enterpriseValue: 0,
@@ -81,14 +83,6 @@ function App() {
           </Route>
         </Switch>
       </AuthProvider>
-
-      <div>
-        <h1>{ticker}</h1>
-        <h1>{data.price}</h1>
-        <h1>{data.comapanyName}</h1>
-        <h1>{data.enterpriseValueOverEBITDA}</h1>
-        <h1>{data.enterpriseValue}</h1>
-      </div>
     </div>
   );
 }
