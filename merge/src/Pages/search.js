@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchUI } from "../componets";
-import { FliterCard } from "../componets";
+//import { FliterCard } from "../componets";
 
 export default function Search(props) {
   return (
@@ -13,7 +13,36 @@ export default function Search(props) {
             </div>
           </li>
           <li className="row-span-2 bg-gray-50 rounded-lg shadow-xl">
-            <div className="h-24"></div>
+            <div className="h-24 pt-3 pl-3 pr-3 text-left">
+              <div>
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    Price: {props.data.price}
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    Revenue: {props.data.revenue}
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    Cost Of Revenue: {props.data.costOfRevenue}
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    Revenue Growth: {(props.data.revenueGrowth * 10)}
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
             <div className="h-24"></div>

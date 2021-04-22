@@ -36,18 +36,18 @@ function App() {
   const [data, setData] = useState({
     date: "",
     comapanyName: "",
-    price: 0,
-    revenue: 0,
-    debtGrowth: 0,
-    costOfRevenue: 0,
-    ebitda: 0,
-    ebitdaratio: 0,
-    revenueGrowth: 0,
-    enterpriseValueOverEBITDA: 0,
-    enterpriseValue: 0,
-    interestCoverage: 0,
-    dividendYield: 0,
-    roicTTM: 0,
+    price: null,
+    peRatio: null,
+    revenue: null,
+    debtGrowth: null,
+    costOfRevenue: null,
+    ebitda: null,
+    ebitdaratio: null,
+    revenueGrowth: null,
+    enterpriseValueOverEBITDA: null,
+    enterpriseValue: null,
+    interestCoverage: null,
+    roicTTM: null,
     pressReleaseData: [],
     sentiment: "",
   });
@@ -59,12 +59,17 @@ function App() {
 
   function displaySearch() {
     return (
-      <Search Ticker={ticker} handleTicker={handleTicker} setData={setData} />
+      <Search
+        Ticker={ticker}
+        handleTicker={handleTicker}
+        setData={setData}
+        data={data}
+      />
     );
   }
 
   return (
-    <div className="App">
+    <div className="App antialiased text-grey-900">
       <AuthProvider>
         <Navbar toggle={toggle} />
         <Dropdown isOpen={isOpen} toggle={toggle} />
