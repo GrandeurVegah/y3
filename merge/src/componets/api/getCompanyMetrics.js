@@ -18,7 +18,7 @@ export default function getCompanyMetrics(ticker, setData) {
       const req = https.request(options, (res) => {
         res.on("data", (d) => {
           const data = JSON.parse(d);
-          console.log(data)
+          console.log(data);
           if (
             data[0].enterpriseValueTTM &&
             data[0].enterpriseValueOverEBITDATTM &&
@@ -27,6 +27,11 @@ export default function getCompanyMetrics(ticker, setData) {
             data[0].roicTTM
           ) {
             console.log("KEY Metric");
+            if (data[0].enterpriseValueTTM === undefined) {
+              alert(
+                "Please enter the company ticker again our data privider had an error with get the Key Metric data"
+              );
+            }
             setData((oldvalue) => {
               return {
                 ...oldvalue,

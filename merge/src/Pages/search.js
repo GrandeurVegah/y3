@@ -80,7 +80,7 @@ export default function Search(props) {
               <div className="pt-1">
                 <div className="bg-gray-100 border rounded-lg">
                   <div className="p-1 pl-3 font-bold">
-                    {props.data.comapanyName}
+                    Comapny:{props.data.comapanyName}
                   </div>
                 </div>
               </div>
@@ -94,19 +94,118 @@ export default function Search(props) {
             </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
-            <div className="h-24"></div>
+            <div className="h-24">
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    EBITDA: {props.data.ebitda}
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    EBITDA Ratio{props.data.ebitdaratio}
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
-            <div className="h-24"></div>
+            <div className="h-24">
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    Enterprise Value: {props.data.enterpriseValue}
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    EV / EBITDA: {props.data.enterpriseValueOverEBITDA}
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
-            <div className="h-24"></div>
+            <div className="h-24">
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    interest Coverage: {props.data.interestCoverage}
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    PE Ratio: {props.data.peRatio}
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
-            <div className="h-24"></div>
+            <div className="h-24">
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    <a
+                      href={props.data.pressReleaseData.news1}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Artical One
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    <a
+                      href={props.data.pressReleaseData.news2}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Artical 2
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
-            <div className="h-24"></div>
+            <div className="h-24">
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    <a
+                      href={props.data.pressReleaseData.news3}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Artical Three
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    <a
+                      href={props.data.pressReleaseData.news4}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Artical Four
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </div>

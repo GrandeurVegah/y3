@@ -11,7 +11,7 @@ export default function getGrowthMetrics(ticker, setData) {
           "/api/v3/financial-growth/" +
           ticker +
           "?limit=20&apikey=" +
-          process.env.REACT_APP_fmp_key,
+          "49ed8857a060e2ab52e6014789fd0f33",
         method: "GET",
       };
 
