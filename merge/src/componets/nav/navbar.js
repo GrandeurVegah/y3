@@ -78,9 +78,6 @@ export default function NavBar({ toggle }) {
         <Link to="/Search" className="p-4">
           Search
         </Link>
-        <Link to="/Portfolio" className="p-4">
-          Porfolio
-        </Link>
         <Link to="/Search" className="p-4">
           {error && alert({ error })}
           <button

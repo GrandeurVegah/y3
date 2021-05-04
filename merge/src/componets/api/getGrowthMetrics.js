@@ -17,18 +17,22 @@ export default function getGrowthMetrics(ticker, setData) {
 
       const req = https.request(options, (res) => {
         res.on("data", (d) => {
-          console.log("Growth Metrics");
           const data = JSON.parse(d);
-          //console.log(data[0]);
-          setData((oldvalue) => {
-            return {
-              ...oldvalue,
-              date: data[0].date,
-              revenueGrowth: data[0].revenueGrowth,
-              debtGrowth: data[0].debtGrowth,
-              interestCoverage: data[0].interestCoverage,
-            };
-          });
+          if (data[0].date && data[0].revenueGrowth && data[0].debtGrowth) {
+            console.log("Growth Metrics");
+            setData((oldvalue) => {
+              return {
+                ...oldvalue,
+                date: data[0].date,
+                revenueGrowth: data[0].revenueGrowth,
+                debtGrowth: data[0].debtGrowth,
+              };
+            });
+          } else {
+            alert(
+              "Please enter the company ticker again our data privider had an error with get the Growth Metrics data "
+            );
+          }
         });
       });
 

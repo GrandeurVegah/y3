@@ -63,9 +63,6 @@ export default function Dropdown({ isOpen, toggle }) {
       <Link to="/Search" className="p-4">
         Search
       </Link>
-      <Link to="/Porfolio" className="p-4">
-        Portfolio
-      </Link>
       <Link to="/Search" className="p-4">
         {error && alert({ error })}
         <button

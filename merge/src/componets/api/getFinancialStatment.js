@@ -18,22 +18,26 @@ export default function getFinancialStatment(ticker, setData) {
 
       const req = https.request(options, (res) => {
         res.on("data", (d) => {
-          console.log("Finacial Statment");
           const data = JSON.parse(d);
-          console.log(data[0]);
-          var num1 = numeral(data[0].revenue);
-          var num2 = numeral(data[0].costOfRevenue);
-          var revenue = num1.format("($ 0.00 a)");
-          var costOfRevenue = num2.format("($ 0.00 a)");
-          console.log(revenue, costOfRevenue);
-          setData((oldvalue) => {
-            return {
-              ...oldvalue,
-              revenue: revenue,
-              ebitdaratio: data[0].ebitdaratio,
-              costOfRevenue: costOfRevenue,
-            };
-          });
+          if (data[0].revenue && data[0].ebitdaratio && data[0].costOfRevenue) {
+            console.log("Finacial Statment");
+            var num1 = numeral(data[0].revenue);
+            var num2 = numeral(data[0].costOfRevenue);
+            var revenue = num1.format("($ 0.00 a)");
+            var costOfRevenue = num2.format("($ 0.00 a)");
+            setData((oldvalue) => {
+              return {
+                ...oldvalue,
+                revenue: revenue,
+                ebitdaratio: data[0].ebitdaratio,
+                costOfRevenue: costOfRevenue,
+              };
+            });
+          } else {
+            alert(
+              "Please enter the company ticker again our data privider had an error with get the Financial Metrics data"
+            );
+          }
         });
       });
 

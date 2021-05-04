@@ -3,6 +3,19 @@ import { SearchUI } from "../componets";
 //import { FliterCard } from "../componets";
 
 export default function Search(props) {
+  function sentCalc() {
+    const sent = props.data.sentiment;
+    if (sent === null) {
+      return "";
+    }
+    if (sent <= -1) {
+      return "Negative";
+    } else if (sent >= 1) {
+      return "Positive";
+    } else {
+      return "Neutral";
+    }
+  }
   return (
     <div className="min-h-screen flex items-center bg-white">
       <div className="flex-1 max-w-4xl mx-auto p-10">
@@ -38,17 +51,47 @@ export default function Search(props) {
               <div className="pt-1">
                 <div className="bg-gray-100 border rounded-lg">
                   <div className="p-1 pl-3 font-bold">
-                    Revenue Growth: {(props.data.revenueGrowth * 10)}
+                    Revenue Growth: {props.data.revenueGrowth * 10}
                   </div>
                 </div>
               </div>
             </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
-            <div className="h-24"></div>
+            <div className="h-24">
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    Sentiment Score: {props.data.sentiment}
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    Sentiment: {sentCalc()}
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
-            <div className="h-24"></div>
+            <div className="h-24">
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    {props.data.comapanyName}
+                  </div>
+                </div>
+              </div>
+              <div className="pt-1">
+                <div className="bg-gray-100 border rounded-lg">
+                  <div className="p-1 pl-3 font-bold">
+                    ROIC: {props.data.roicTTM}
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
           <li className="bg-gray-50  rounded-lg shadow-xl">
             <div className="h-24"></div>

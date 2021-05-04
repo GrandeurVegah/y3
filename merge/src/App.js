@@ -6,7 +6,6 @@ import {
   Navbar,
   Home,
   Dropdown,
-  Portfolio,
   AuthProvider,
   PrivateRoute,
 } from "./componets";
@@ -48,8 +47,8 @@ function App() {
     enterpriseValue: null,
     interestCoverage: null,
     roicTTM: null,
-    pressReleaseData: [],
-    sentiment: "",
+    pressReleaseData: {},
+    sentiment: null,
   });
   const [ticker, setTicker] = useState("");
 
@@ -82,9 +81,6 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
-          </Route>
-          <Route exact path="/Portfolio">
-            <Portfolio />
           </Route>
         </Switch>
       </AuthProvider>

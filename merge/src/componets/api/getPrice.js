@@ -8,15 +8,21 @@ export default function getPrice(ticker, setData) {
         .stock(ticker)
         .quote()
         .then((response) => {
-          console.log("Price Respones");
-          var num1 = numeral(response[0].price);
-          var price = num1.format('$0,0.00');
-          setData((oldvalue) => {
-            return {
-              ...oldvalue,
-              price: price,
-            };
-          });
+          if (response[0].price) {
+            console.log("Price Respones");
+            var num1 = numeral(response[0].price);
+            var price = num1.format("$0,0.00");
+            setData((oldvalue) => {
+              return {
+                ...oldvalue,
+                price: price,
+              };
+            });
+          } else {
+            alert(
+              "Please enter the company ticker again our data privider had and error with getting the price data "
+            );
+          }
         });
     }
   } catch {
