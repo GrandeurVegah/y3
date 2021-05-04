@@ -15,6 +15,7 @@
     "financialmodelingprep": "^1.1.0",
     "firebase": "^8.3.3",
     "https": "^1.0.0",
+    "netlify-cli": "^3.26.0",
     "newsapi": "^2.4.1",
     "numeral": "^2.0.6",
     "postcss": "^8.2.8",
