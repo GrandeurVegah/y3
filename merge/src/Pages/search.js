@@ -8,7 +8,7 @@ export default function Search(props) {
     if (sent === null) {
       return "";
     }
-    if (sent <= -1) {
+    if (sent < 0) {
       return "Negative";
     } else if (sent >= 1) {
       return "Positive";

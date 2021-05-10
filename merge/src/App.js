@@ -45,7 +45,7 @@ function App() {
     revenueGrowth: null,
     enterpriseValueOverEBITDA: null,
     enterpriseValue: null,
-    interestCoverage: null,
+    interestCoverage: "N/A",
     roicTTM: null,
     pressReleaseData: {},
     sentiment: null,
