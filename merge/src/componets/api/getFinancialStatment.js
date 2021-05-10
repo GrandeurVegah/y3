@@ -1,4 +1,4 @@
-export default function getFinancialStatment(ticker, setData) {
+export default async function getFinancialStatment(ticker, setData) {
   const stocks = require("stock-ticker-symbol");
   var numeral = require("numeral");
   if (typeof ticker === "string" && stocks.lookup(ticker) !== null) {
@@ -11,11 +11,11 @@ export default function getFinancialStatment(ticker, setData) {
         "/api/v3/income-statement/" +
         ticker +
         "?limit=20&apikey=" +
-        process.env.REACT_APP_fmp_key,
+        "ba873c76009f98f9d823a837a205d45c",
       method: "GET",
     };
 
-    const req = https.request(options, (res) => {
+    const req = await https.request(options, (res) => {
       res.on("data", (d) => {
         try {
           const data = JSON.parse(d);

@@ -1,10 +1,10 @@
-export default function getPrice(ticker, setData) {
+export default async function getPrice(ticker, setData) {
   var numeral = require("numeral");
-  const fmp = require("financialmodelingprep")(process.env.REACT_APP_fmp_key);
+  const fmp = require("financialmodelingprep")("ba873c76009f98f9d823a837a205d45c");
   const stocks = require("stock-ticker-symbol");
 
   if (typeof ticker === "string" && stocks.lookup(ticker) !== null) {
-    fmp
+    await fmp
       .stock(ticker)
       .quote()
       .then((response) => {

@@ -1,5 +1,5 @@
 import { getSentiment } from "../../componets";
-export default function getPressReleases(ticker, setData) {
+export default async function getPressReleases(ticker, setData) {
   const https = require("https");
 
   const options = {
@@ -9,11 +9,11 @@ export default function getPressReleases(ticker, setData) {
       "/api/v3/stock_news?tickers=" +
       ticker +
       "&limit=5&apikey=" +
-      process.env.REACT_APP_fmp_key,
+      "ba873c76009f98f9d823a837a205d45c",
     method: "GET",
   };
 
-  const req = https.request(options, (res) => {
+  const req = await https.request(options, (res) => {
     res.on("data", (d) => {
       try {
         const data = JSON.parse(d);
