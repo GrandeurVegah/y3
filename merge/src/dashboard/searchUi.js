@@ -12,12 +12,26 @@ export default function SearchUi(props) {
     event.preventDefault();
     const tick = ticker.toUpperCase();
     props.props.handleTicker(tick);
-    await getPrice(ticker, props.props.setData);
-    await getCompanyName(ticker, props.props.setData);
-    await getFinancialStatment(ticker, props.props.setData);
-    await getCompanyGrowthMetrics(ticker, props.props.setData);
-    await getCompanyMetrics(ticker, props.props.setData);
-    await getPressReleases(ticker, props.props.setData);
+    window.addEventListener(
+      "resize",
+      await getPrice(ticker, props.props.setData),
+      await getCompanyName(ticker, props.props.setData),
+      await getFinancialStatment(ticker, props.props.setData),
+      await getCompanyGrowthMetrics(ticker, props.props.setData),
+      await getCompanyMetrics(ticker, props.props.setData),
+      await getPressReleases(ticker, props.props.setData)
+    );
+    return function cleanupListener() {
+      window.removeEventListener(
+        "resize",
+        getPrice(ticker, props.props.setData),
+        getCompanyName(ticker, props.props.setData),
+        getFinancialStatment(ticker, props.props.setData),
+        getCompanyGrowthMetrics(ticker, props.props.setData),
+        getCompanyMetrics(ticker, props.props.setData),
+        getPressReleases(ticker, props.props.setData)
+      );
+    };
   }
 
   return (

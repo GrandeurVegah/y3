@@ -36,6 +36,10 @@ export default async function getFinancialStatment(ticker, setData) {
           alert(
             "Please enter the company ticker again our data privider had an error with getting the data"
           );
+          setTimeout(() => {
+            window.location.reload(true);
+            alert("Reloading due to data error");
+          }, 2000);
         }
       });
     });
