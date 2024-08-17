@@ -1,3 +1,4 @@
+
 export default async function getCompanyMetrics(ticker, setData) {
   const stocks = require("stock-ticker-symbol");
   if (typeof ticker === "string" && stocks.lookup(ticker) !== null) {
@@ -10,7 +11,7 @@ export default async function getCompanyMetrics(ticker, setData) {
         "/api/v3/key-metrics-ttm/" +
         ticker +
         "?apikey=" +
-        "ba873c76009f98f9d823a837a205d45c",
+        process.env.REACT_APP_fmp_key,
       method: "GET",
     };
 
