@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../index";
+import { useAuth } from "../Auth";
 export default function Dropdown({ isOpen, toggle }) {
   const { login } = useAuth();
   const { logout } = useAuth();

@@ -6,11 +6,14 @@ import {
   Navbar,
   Home,
   Dropdown,
+} from "./componets";
+import {
   AuthProvider,
   PrivateRoute,
-} from "./componets";
+} from "./componets/Auth";
 
 function App() {
+  const stocks = require("stock-ticker-symbol");
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -52,8 +55,35 @@ function App() {
   });
   const [ticker, setTicker] = useState("");
 
+  function clearData() {
+    setData({
+      date: "",
+      companyName: "",
+      price: null,
+      peRatio: null,
+      revenue: null,
+      debtGrowth: null,
+      costOfRevenue: null,
+      ebitda: null,
+      ebitdaratio: null,
+      revenueGrowth: null,
+      enterpriseValueOverEBITDA: null,
+      enterpriseValue: null,
+      interestCoverage: "N/A",
+      roicTTM: null,
+      pressReleaseData: {},
+      sentiment: null,
+    });
+  }
+
   async function handleTicker(tickerData) {
-    setTicker(tickerData);
+    clearData()
+    if (typeof tickerData === "string" && stocks.lookup(tickerData) !== null) {
+      setTicker(tickerData);
+      return
+    } else{
+      alert("Ticker not found please try again");
+    }
   }
 
   function displaySearch() {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../index";
+import { useAuth } from "../Auth/authProvider";
 export default function NavBar({ toggle }) {
   const { login } = useAuth();
   const { logout } = useAuth();

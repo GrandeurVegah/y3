@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { getPrice } from "../componets";
-import { getCompanyName } from "../componets";
-import { getFinancialStatment } from "../componets";
-import { getCompanyGrowthMetrics } from "../componets";
-import { getPressReleases } from "../componets";
-import { getCompanyMetrics } from "../componets";
+import { getPrice } from "../componets/api";
+import { getCompanyName } from "../componets/api";
+import { getFinancialStatment } from "../componets/api";
+import { getCompanyGrowthMetrics } from "../componets/api";
+import { getCompanyMetrics } from "../componets/api";
 export default function SearchUi(props) {
   const [ticker, setTicker] = useState("");
 
   async function changeTicker(event) {
-    event.preventDefault();
+    event.preventDefault(); 
     const tick = ticker.toUpperCase();
     props.props.handleTicker(tick);
     window.addEventListener(
@@ -19,7 +18,7 @@ export default function SearchUi(props) {
       await getFinancialStatment(ticker, props.props.setData),
       await getCompanyGrowthMetrics(ticker, props.props.setData),
       await getCompanyMetrics(ticker, props.props.setData),
-      await getPressReleases(ticker, props.props.setData)
+      //await getPressReleases(ticker, props.props.setData)
     );
     return function cleanupListener() {
       window.removeEventListener(
@@ -29,7 +28,6 @@ export default function SearchUi(props) {
         getFinancialStatment(ticker, props.props.setData),
         getCompanyGrowthMetrics(ticker, props.props.setData),
         getCompanyMetrics(ticker, props.props.setData),
-        getPressReleases(ticker, props.props.setData)
       );
     };
   }

@@ -1,34 +1,34 @@
+import { fmpOptions } from "../intergrations";
 export default async function getPrice(ticker, setData) {
-  var numeral = require("numeral");
-  const fmp = require("financialmodelingprep")(
-    "ba873c76009f98f9d823a837a205d45c"
-  );
+  //var numeral = require("numeral");
+  const https = require("https");
+  const options = fmpOptions(process.env.REACT_APP_fmp_price_api, ticker);
   const stocks = require("stock-ticker-symbol");
 
   if (typeof ticker === "string" && stocks.lookup(ticker) !== null) {
-    await fmp
-      .stock(ticker)
-      .quote()
-      .then((response) => {
+    console.log(stocks.lookup(ticker))
+    const req = await https.request(options, (res) => {
+      res.on("data", (d) => {
         try {
-          console.log("Price Respones");
-          var num1 = numeral(response[0].price);
-          var price = num1.format("$0,0.00");
+          const data = JSON.parse(d);
+          console.log(data[0].name);
           setData((oldvalue) => {
             return {
               ...oldvalue,
-              price: price,
+              comapanyName: data[0].name,
+              price: data[0].price,
             };
           });
-        } catch {
-          alert(
-            "Please enter the company ticker again our data privider had an error with getting the data "
-          );
-          setTimeout(() => {
-            window.location.reload(true);
-            console.log("Reloaded");
-          }, 2000);
+        } catch (error) {
+          console.log("failed");
         }
       });
+    });
+
+    req.on("error", (error) => {
+      console.error(`Problem with request: ${error.message}`);
+    });
+
+    req.end();
   }
 }
