@@ -52,7 +52,7 @@ export default function Dropdown({ isOpen, toggle }) {
     <div
       className={
         isOpen
-          ? "grid grid-rows-4 text-center items-center bg-yellow-500"
+          ? "grid grid-rows-4 text-center items-center bg-slate-500"
           : "hidden"
       }
       onClick={toggle}

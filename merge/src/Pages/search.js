@@ -1,5 +1,6 @@
 import React from "react";
 import { SearchUI } from "../componets";
+// Search Page 
 export default function Search(props) {
   const fields = [
     { key: "date", label: "Date" },

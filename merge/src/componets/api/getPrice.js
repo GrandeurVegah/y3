@@ -6,7 +6,6 @@ export default async function getPrice(ticker, setData) {
   const stocks = require("stock-ticker-symbol");
 
   if (typeof ticker === "string" && stocks.lookup(ticker) !== null) {
-    console.log(stocks.lookup(ticker))
     const req = await https.request(options, (res) => {
       res.on("data", (d) => {
         try {

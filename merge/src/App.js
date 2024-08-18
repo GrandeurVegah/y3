@@ -1,6 +1,10 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { getPrice } from "./componets/api";
+import { getFinancialStatment } from "./componets/api";
+import { getCompanyGrowthMetrics } from "./componets/api";
+import { getCompanyMetrics } from "./componets/api";
 import {
   Search,
   Navbar,
@@ -13,12 +17,14 @@ import {
 } from "./componets/Auth";
 
 function App() {
+  const [ticker, setTicker] = useState("");
   const stocks = require("stock-ticker-symbol");
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+  
 
   useEffect(() => {
     const hideMenu = () => {
@@ -34,6 +40,19 @@ function App() {
       window.removeEventListener("resize", hideMenu);
     };
   });
+
+  useEffect(() => {
+    if (!ticker) return;
+    const fetchData = async () => {
+      await Promise.all([
+        getPrice(ticker, setData),
+        getFinancialStatment(ticker, setData),
+        getCompanyGrowthMetrics(ticker, setData),
+        getCompanyMetrics(ticker, setData)
+      ]);
+    };
+    fetchData();
+  }, [ticker]);
 
   const [data, setData] = useState({
     date: "",
@@ -53,7 +72,6 @@ function App() {
     pressReleaseData: {},
     sentiment: null,
   });
-  const [ticker, setTicker] = useState("");
 
   function clearData() {
     setData({
@@ -91,7 +109,6 @@ function App() {
       <Search
         Ticker={ticker}
         handleTicker={handleTicker}
-        setData={setData}
         data={data}
       />
     );
