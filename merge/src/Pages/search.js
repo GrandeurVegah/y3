@@ -20,7 +20,6 @@ export default function Search(props) {
   ];
 
   const renderValue = (key, value) => {
-    console.log(props)
     if (typeof value === "object" && value !== null) {
       return (
         <pre className="p-1 pl-3">
