@@ -1,10 +1,10 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { getPrice } from "./componets/api";
-import { getFinancialStatment } from "./componets/api";
-import { getCompanyGrowthMetrics } from "./componets/api";
-import { getCompanyMetrics } from "./componets/api";
+import { getPrice } from "./componets/internal-api";
+import { getFinancialStatment } from "./componets/internal-api";
+import { getCompanyGrowthMetrics } from "./componets/internal-api";
+import { getCompanyMetrics } from "./componets/internal-api";
 import {
   Search,
   Navbar,
